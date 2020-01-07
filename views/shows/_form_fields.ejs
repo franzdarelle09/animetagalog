@@ -1,0 +1,38 @@
+<div>
+    <label>Title</label>
+    <input type="text" name="title" value="<%= show.name %>">
+</div>
+<div>
+    <label>Author</label>
+    <select name="author">
+
+        <% authors.forEach(author => { %>
+        <% if(author.id === show.author){ %>
+            <option value="<%= author.id %>" selected><%= author.name %></option>
+        <% } else{ %>
+            <option value="<%= author.id %>"><%= author.name %></option>
+        <% } %>
+        <% }) %>
+    </select>
+</div>
+<div>
+    <label>Published Date</label>
+    <input type="date" name="publishDate" 
+            value="<%= show.publishDate == null ? '': show.publishDate.toISOString().split('T')[0] %>">
+</div>  
+<div>
+    <select name="genre">
+        <option value="Action">Action</option>
+        <option value="Action">Love Story</option>
+        <option value="Action">Comedy</option>
+        <option value="Action">Adventure</option>
+    </select>
+</div>
+<div>
+    <label>Cover</label>    
+    <input type="file" name="cover">
+</div>
+<div>
+    <label>Description</label>    
+    <textarea name="description"><%= show.description %></textarea>
+</div>
